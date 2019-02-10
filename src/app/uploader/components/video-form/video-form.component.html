@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
+      <div class="card add-video-card my-5">
+        <div class="card-body">
+          <h5 class="card-title">Upload Video</h5>
+          <div class="progress" style="margin-bottom: 0;" *ngIf="uploader?.queue?.length">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{ width: uploader.queue[0].progress + '%' }"
+            ></div>
+          </div>
+          <form class="form-video" #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-12">
+                <div class="md-form">
+                  <input
+                    mdbInputDirective
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    name="name"
+                    required
+                    [(ngModel)]="videoInfo.name"
+                    [errorMessage]="errorMessage"
+                    [successMessage]="successMessage"
+                  />
+                  <label for="name" class="">Name</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="md-form">
+                  <textarea
+                    class="md-textarea form-control "
+                    rows="2"
+                    id="input_text"
+                    type="text"
+                    length="90"
+                    mdbCharCounter
+                    mdbInputDirective
+                    name="description"
+                    [(ngModel)]="videoInfo.description"
+                    [errorMessage]="errorMessage"
+                    [successMessage]="successMessage"
+                  ></textarea>
+                  <label for="input_text">Description</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="file-field md-form">
+                  <div
+                    mdbBtn
+                    color="info"
+                    size="sm"
+                    class="waves-light"
+                    mdbWavesEffect
+                  >
+                    <span>Choose file</span>
+                    <input type="file" ng2FileSelect [uploader]="uploader" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input
+                      class="file-path"
+                      type="text"
+                      placeholder="Upload your file"
+                      name="filename"
+                      required
+                      [(ngModel)]="videoInfo.filename"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span class="float-right">
+                  <button
+                    type="submit"
+                    class="unique-color"
+                    mdbBtn
+                    color="success"
+                    mdbWavesEffect
+                  >
+                    Submit
+                  </button>
+                  <button type="button" mdbBtn color="light" mdbWavesEffect (click)="onCancel()">
+                    Cancel
+                  </button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

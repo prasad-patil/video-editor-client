@@ -1,0 +1,93 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          Home <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav my-2 my-lg-0" *ngIf="userService.user">
+      <li ngbDropdown class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          ngbDropdownToggle
+        >
+          {{userService.user.userName}}
+        </a>
+        <div
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown"
+          ngbDropdownMenu
+        >
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+<nav class="mb-1  navbar navbar-expand-lg  navbar-dark unique-color">
+  <a class="navbar-brand" href="javascript:;;">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent-3"
+    aria-controls="navbarSupportedContent-3"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-effect waves-light" routerLink="/">Home </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons" *ngIf="userService.user">
+      <li mdbDropdown class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle waves-effect waves-light"
+          mdbDropdownToggle
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          mdbWavesEffect
+        >
+          {{ userService.user.userName }} <i class="fas fa-user"></i>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right dropdown-unique"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <a class="dropdown-item waves-effect waves-light" (click)="logout()"
+            >Logout</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

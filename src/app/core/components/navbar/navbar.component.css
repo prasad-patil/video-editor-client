@@ -1,0 +1,6 @@
+.dropdown-menu {
+  left: -100px !important;
+}
+a:hover {
+  cursor: pointer;
+}

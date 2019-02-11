@@ -11,6 +11,8 @@ import { Route, Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user: User;
+  incorrectPassword: boolean;
+  submitted: boolean;
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -18,11 +20,14 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.user = new User();
+    this.incorrectPassword = false;
+    this.submitted = false;
   }
 
   ngOnInit() {}
 
   onSubmit() {
+    this.submitted = true;
     this.signInWithEmail();
   }
 
@@ -45,6 +50,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         }
       })
-      .catch(err => console.log('error: ' + err));
+      .catch(err => {
+        const errors = ['auth/user-not-found', 'auth/wrong-password'];
+        if (errors.indexOf(err.code) > -1) {
+          this.incorrectPassword = true;
+        }
+      });
   }
+
+  change(e) {}
 }

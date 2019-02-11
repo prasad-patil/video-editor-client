@@ -7,3 +7,8 @@ a:hover {
 .navbar-dark .navbar-brand {
   color: #fff !important;
 }
+.brand-icon {
+  font-size: 33px;
+  color: #ff5151;
+  margin-right: 11px;
+}

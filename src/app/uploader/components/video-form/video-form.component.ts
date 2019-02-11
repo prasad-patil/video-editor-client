@@ -26,14 +26,19 @@ export class VideoFormComponent implements OnInit {
       file.withCredentials = false;
       this.videoInfo.filename = file._file.name;
     };
+    this.uploader.onSuccessItem = (item, response, status, headers) =>
+      this.onSuccessItem(item, response, status, headers);
   }
 
+  onSuccessItem(item, response, status, headers) {
+    this.router.navigate(['/videos']);
+  }
   onSubmit() {
     console.log(this.videoInfo);
     this.uploader.uploadAll();
   }
 
   onCancel() {
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/videos']);
   }
 }

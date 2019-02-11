@@ -77,10 +77,6 @@
   color: transparent;
 }
 
-input:hover {
-  cursor: text;
-}
-
 .form-label-group input:not(:placeholder-shown) {
   padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
   padding-bottom: calc(var(--input-padding-y) / 3);
@@ -104,4 +100,24 @@ input:hover {
 }
 .unique-color {
   background-color: #3f729b !important;
+}
+.counter-danger {
+  border-bottom: 1px solid #f44336 !important;
+  box-shadow: 1px 1px 1px 1px #f44336 !important;
+  border-radius: 3.25rem;
+}
+
+.invalid-input-alert {
+  color: #ff3547 !important;
+  font-size: 0.8rem;
+  padding-top: 7px;
+  padding-left: 11px;
+}
+
+input:hover {
+  cursor: text;
+}
+
+.incorrect-input {
+  padding: 10px;
 }

@@ -11,19 +11,31 @@
                 id="inputEmail"
                 name="username"
                 class="form-control"
+                [ngClass]="{
+                  'counter-danger': !(username.valid || username.pristine),
+                  'form-control': true
+                }"
                 placeholder="Email address"
                 required
                 autofocus
+                email
                 [(ngModel)]="user.username"
                 #username="ngModel"
+                (change)="incorrectPassword = false"
               />
               <label for="inputEmail">User name</label>
               <div
-                [hidden]="username.valid || username.pristine"
-                class="alert alert-danger"
+                [hidden]="!(username.invalid && username.dirty && username?.errors?.required)"
+                class="invalid-input-alert"
               >
                 User name is required
               </div>
+              <div
+              [hidden]="!(username.invalid && username.dirty && username?.errors?.email)"
+              class="invalid-input-alert"
+            >
+             Please enter valid email
+            </div>
             </div>
 
             <div class="form-label-group">
@@ -31,16 +43,20 @@
                 type="password"
                 id="inputPassword"
                 name="password"
-                class="form-control"
+                [ngClass]="{
+                  'counter-danger': !(password.valid || password.pristine),
+                  'form-control': true
+                }"
                 placeholder="Password"
                 required
                 [(ngModel)]="user.password"
                 #password="ngModel"
+                (change)="incorrectPassword = false"
               />
               <label for="inputPassword">Password</label>
               <div
                 [hidden]="password.valid || password.pristine"
-                class="alert alert-danger"
+                class="invalid-input-alert"
               >
                 Password is required
               </div>
@@ -56,10 +72,13 @@
                 >Remember password</label
               >
             </div>
+            <div *ngIf="incorrectPassword" class="invalid-input-alert incorrect-input">
+              Incorrect Password
+            </div>
             <button
               class="btn btn-lg btn-primary btn-block text-uppercase unique-color"
               type="submit"
-              [disabled]="!f.form.valid"
+              [disabled]="(!f.form.valid) && incorrectPassword"
             >
               Sign in
             </button>

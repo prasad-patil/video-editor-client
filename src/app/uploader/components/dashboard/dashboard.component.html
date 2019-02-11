@@ -1,23 +1,24 @@
 <div class="container">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>File Name</th>
-          <th>Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let file of files">
-          <td>{{ file.originalname }}</td>
-          <td>
-            <button
-              class="btn button btn-sm unique-color"
-              (click)="downloadPdf(file.filename, file.contentType)"
-            >
-              Download
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files">
+        <td>{{ file.originalname }}</td>
+        <td>
+          <button
+            class="btn button btn-sm unique-color"
+            (click)="downloadPdf(file.filename, file.contentType)"
+          >
+            Download
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="fab unique-color" id="masterfab" [routerLink]="['add']"><span>+</span></div>

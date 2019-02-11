@@ -48,7 +48,9 @@
   </div>
 </nav> -->
 <nav class="mb-1  navbar navbar-expand-lg  navbar-dark unique-color">
-  <a class="navbar-brand" href="javascript:;;">Navbar</a>
+  <a class="navbar-brand" routerLink="/"
+    ><i class="fa fa-youtube" aria-hidden="true"></i> Vider Uploader</a
+  >
   <button
     class="navbar-toggler"
     type="button"
@@ -61,11 +63,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
-    <ul class="navbar-nav mr-auto">
+    <!-- <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link waves-effect waves-light" routerLink="/">Home </a>
       </li>
-    </ul>
+    </ul> -->
     <ul class="navbar-nav ml-auto nav-flex-icons" *ngIf="userService.user">
       <li mdbDropdown class="nav-item dropdown">
         <a
